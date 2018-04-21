@@ -2,7 +2,7 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav" style="margin-left:100px;">
-        <li class="<?php echo (!empty($this->params['action']) && ($this->params['action']=='index') )?'active' :'inactive' ?>"> <?php echo $this->Html->link('<i class="icon-dashboard"></i><span>Dashboard</span>',array('controller' => 'Users','action' => 'index','admin' => true),array('escape' => false));		?></li>
+        <li class="<?php echo (!empty($this->params['action']) && ($this->params['action']=='index') )?'active' :'inactive' ?>"> <?php echo $this->Html->link('<i class="icon-dashboard"></i><span>Dashboard</span>',array('controller' => 'Users','action' => 'index','admin' => true),array('escape' => false));?></li>
         
 		  
 			  
@@ -10,12 +10,98 @@
 			 <li>
                 
 				
-				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Category</span>',array('controller' => 'categories','action' => 'categories','admin' => true),array('escape' => false));		?>
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Form 16 File list</span>',array('controller' => 'incometaxes','action' => 'admin_index','admin' => true),array('escape' => false));?>
+			
+			
+			</li>
+			  
+			
+			
+			
+			<li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="icon-picture"></i>
+					<span>Registrations</span>
+					<b class="caret"></b>
+				</a>
+			<ul class="dropdown-menu">
+			       <li><?php echo $this->Html->link("Company Registration Request",array('controller'=>'registrations','action'=>'admin_index','company','admin'=>true));?></li>
+			
+			       <li><?php echo $this->Html->link("GST Registration List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Professional Tax List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("TAN Registration List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("ESI Registration List ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("MSME Registration List ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("FSSAI Registration List ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Trade Licence List ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Digital Signature List ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+			
+			</ul>
 			
 			
 			</li>
 			
 			<li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="icon-picture"></i>
+					<span>Trademark</span>
+					<b class="caret"></b>
+				</a>
+			<ul class="dropdown-menu">
+			       <li><?php echo $this->Html->link("Trademark Registration",array('controller'=>'registrations','action'=>'admin_index','company','admin'=>true));?></li>
+			       <li><?php echo $this->Html->link("Trademark Rectification List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Professional Tax List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Trademark Objection Registration List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Trademark Opposition ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Trademark Renewal ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				  
+			
+			</ul>
+			
+			
+			</li>
+			
+			<li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="icon-picture"></i>
+					<span>Other Registrations</span>
+					<b class="caret"></b>
+				</a>
+			<ul class="dropdown-menu">
+			       <li><?php echo $this->Html->link("Logo Design",array('controller'=>'registrations','action'=>'admin_index','company','admin'=>true));?></li>
+			       <li><?php echo $this->Html->link("Copyright Registration",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Design Registration",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   <li><?php echo $this->Html->link("Provision Patent",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
+				   
+				  
+			
+			</ul>
+			
+			
+			</li>
+			
+			 <li>
+                
+				
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Log File</span>',array('controller' => 'Users','action' => 'log','admin' => true),array('escape' => false));?>
+				
+			</li>
+			
+			 <li>
+                
+				
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Enquiry List</span>',array('controller' => 'Users','action' => 'enquiry','admin' => true),array('escape' => false));?>
+				
+			</li>
+			
+			 <li>
+                
+				
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Contact</span>',array('controller' => 'Users','action' => 'contact','admin' => true),array('escape' => false));?>
+				
+			</li>
+			
+			<!--<li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-picture"></i>
 					<span>Product</span>
@@ -29,10 +115,10 @@
 			</ul>
 			
 			
-			</li>
+			</li>-->
 			
 			
-			<li class="dropdown">
+		<!--	<li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-picture"></i>
 					<span>Subscriber</span>
@@ -47,11 +133,11 @@
 			</ul>
 			
 			
-			</li>
+			</li>-->
 			
 			
 			
-			<li class="dropdown">
+			<!--<li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="icon-picture"></i>
 					<span>Distributor</span>
@@ -65,16 +151,10 @@
 			</ul>
 			
 			
-			</li>
+			</li>-->
 			
 			
-			
-			
-			
-			
-			
-			
-			<li class="dropdown">
+			<!--<li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 					<i > <img src="/gs.jpg"  width="30px"  height="30px" style="margin-top:-5px"/></i>
 					<span>Gallery</span>
@@ -88,7 +168,7 @@
 			</ul>
 			
 			
-			</li>
+			</li>-->
 			
 			
 			
@@ -98,14 +178,14 @@
 			
 			
 			
-			<li>
+			<!--<li>
               
 				
 				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Vendor</span>',array('controller' => 'users','action' => 'vendor','admin' => true),array('escape' => false));		?>
 			
 			
 			
-			</li>
+			</li>-->
 			
 			
 			

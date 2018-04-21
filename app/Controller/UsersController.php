@@ -26,7 +26,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
 		
-		//aasssssdfdsfsdfsdf  dfsfs/asdadada
+		//aasssssdfdsfsdfsdf  dfsfs/asdadada------+++
 
 		 if(isset($this->request->params['admin']) && $this->request->params['admin']) {
 
