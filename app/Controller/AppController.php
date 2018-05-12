@@ -294,7 +294,8 @@ class AppController extends Controller {
 
 
 
-         $this->Auth->allow('login','add','home','productlist','distributorlist','contact','about_us','managment','sendmail','Gallery','send_enqiury','product_detail','email','contact_us','searchproducts','send_query'); 
+         $this->Auth->allow('index','login','add','esi_regis','home','esi','annual','accounting','aduit','annualcom','closeone','closeprivate','closepublic','copyp','design','digital','fssai','prop','part','oneperson','liability','plc','pab','indi','nidh','procom',
+		 'section','gstreg','forein','tem','profess','tanreg','pfreg','msme','import','fssai','trade','trademark','trademarkrecti','trademarkreg','companysearchrslt'); 
 
 
 

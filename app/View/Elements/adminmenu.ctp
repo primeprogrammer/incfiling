@@ -41,49 +41,17 @@
 			
 			</li>
 			
-			<li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="icon-picture"></i>
-					<span>Trademark</span>
-					<b class="caret"></b>
-				</a>
-			<ul class="dropdown-menu">
-			       <li><?php echo $this->Html->link("Trademark Registration",array('controller'=>'registrations','action'=>'admin_index','company','admin'=>true));?></li>
-			       <li><?php echo $this->Html->link("Trademark Rectification List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Professional Tax List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Trademark Objection Registration List",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Trademark Opposition ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Trademark Renewal ",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				  
-			
-			</ul>
-			
-			
-			</li>
-			
-			<li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="icon-picture"></i>
-					<span>Other Registrations</span>
-					<b class="caret"></b>
-				</a>
-			<ul class="dropdown-menu">
-			       <li><?php echo $this->Html->link("Logo Design",array('controller'=>'registrations','action'=>'admin_index','company','admin'=>true));?></li>
-			       <li><?php echo $this->Html->link("Copyright Registration",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Design Registration",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   <li><?php echo $this->Html->link("Provision Patent",array('controller'=>'registrations','action'=>'admin_index','gst','admin'=>true));?></li>
-				   
-				  
-			
-			</ul>
-			
-			
+             <li>
+                
+				
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Page List</span>',array('controller' => 'Pages','action' => 'pagelist','admin' => true),array('escape' => false));?>
+				
 			</li>
 			
 			 <li>
                 
 				
-				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Log File</span>',array('controller' => 'Users','action' => 'log','admin' => true),array('escape' => false));?>
+				<?php echo $this->Html->link('<i class="icon-picture"></i><span>Registered Company List</span>',array('controller' => 'Users','action' => 'regcompanylist','admin' => true),array('escape' => false));?>
 				
 			</li>
 			

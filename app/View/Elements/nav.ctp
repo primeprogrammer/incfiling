@@ -22,7 +22,7 @@
 
 			
 
-			 <a class="navbar-brand" href="/"> <img style="max-width:100px;max-height:30px;" src="<?php echo $this->webroot.'img/AA.PNG';?>"></a>
+			 <a class="navbar-brand" href="/"> <img style="max-width:100px;max-height:30px;" src="/img/ll.png"></a>
 
 			 
 

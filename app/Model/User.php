@@ -72,14 +72,6 @@ class User extends AppModel {
 				'message' => 'Usernames must be between 2 to 60 characters'
 			)
 		),
-        /*'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'wholeseller', 'agent', 'shop', 'customer')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
-        ),*/
-		
 		
 		'password_update' => array(
 			'min_length' => array(
@@ -96,10 +88,26 @@ class User extends AppModel {
 				'allowEmpty' => true,
 				'required' => false,
 			)
-        )
-
-		
-    );
+        ),
+		'contact_number' => array(
+            'nonEmpty' => array(
+                'rule' => array('notBlank'),
+                'message' => 'Phone Number is required',
+				'allowEmpty' => false
+            ),
+			'min_length' => array(
+				'rule' => array('minLength', '10'), 
+				'message' => 'Phone must have a mimimum of 10 characters'
+			)
+        ),
+		'name' => array(
+            'nonEmpty' => array(
+                'rule' => array('notBlank'),
+                'message' => 'A Name is required',
+				'allowEmpty' => false
+            )
+		)
+	);
 	
 	function removTags ($data){ //pr($data);
        if (!empty($data)) {

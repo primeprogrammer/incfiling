@@ -46,6 +46,6 @@ class RegistrationsController extends AppController {
  *   or MissingViewException in debug mode.
  */
 	public function admin_index() {
-		
+		  $this->layout='admin';
 	}
 }

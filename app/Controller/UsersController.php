@@ -8,7 +8,7 @@ class UsersController extends AppController {
 
    public $components = array('Paginator','RequestHandler');
 
-   var $uses = array('User', 'Category','Enquiry','Color','Subscriber','Vendor','Document','Mail');
+   var $uses = array('User', 'Category','Enquiry','Companydetail','Mail');
 
 
 
@@ -588,114 +588,137 @@ $this->layout='admin';
 
 	
 
-	public function admin_vendor() {
+	public function admin_regcompanylist() {
 
 		
 
 		$this->layout='admin';
-
 		
-
 		
+		 if ($this->request->is('post')) {
+			 //pr($_FILES);die;
+							 $error='';
+	                       if(!isset($_FILES['data']['name']['Companydetail']['data']) ||$_FILES['data']['name']['Companydetail']['data'] == '')
+									{
+										$error = true;
+										//$this->request->data['Product']['document']='';
+										//$this->Session->setFlash('PDF File Required !');	
+									
+									}
+									if(!$error)
+									{	
+											
+										// Upload file
+										$filename=$_FILES['data']['name']['Companydetail']['data'];
+										
+										$ext = explode('.',$filename);
+										$ext=$ext[1];
+											
+										if( in_array( strtolower($ext), array( 'csv') ) )
+										{
+											$new_name = time().'.'.$ext;				
+											$upload_dir =WWW_ROOT.'/companylist/';					
+											$name=$upload_dir.$new_name;
+											if(move_uploaded_file( $_FILES['data']['tmp_name']['Companydetail']['data'],$upload_dir.$new_name) )
+											{
+											  //$this->request->data['Product']['document']=$new_name;
+											           $f=$_FILES['data']['name']['Companydetail']['data'];
+													//pr($f);die;
+													$filename = explode('.',$f);
+													//debug($filename);die;
+													if($filename[1]=='csv'){
+														$handle=fopen($name,"r");
+														// var_dump($handle);die;
+														while ($data = fgetcsv($handle)){
+															 $item1 = $data[0];
+															 $item2=$data[1];
+															 $item3=$data[2];
+															 $item4=$data[3];
+															 $item5=$data[4];
+															 $item6=$data[5];
+															 $item7=$data[6];
+															 $item8=$data[7];
+															 $item9=$data[8];
+															 $item10=$data[9];
+															 $item11=$data[10];
+															 $item12=$data[11];
+															 $item13=$data[12];
+															 $item14=$data[13];
+															 $item15=$data[14];
+															 
+															
+															 
 
-	
-
-		
-
-		$vendor= $this->Vendor->find('all');
-
-
-
-
-
-
-
-$this->set(compact('vendor'));
-
-
-
-		
-
-		
-
-		
-
-
-
-	}
-
-
-
-
-
-	
-
-	
-
-	function admin_vendoredit($id=null){
-
-		
-
-			$this->layout = 'admin';
-
-		 //$id=base64_decode($id);
-
-		$this->Vendor->id = $id;
-
-		if (!$this->Vendor->exists()) {
-
-			throw new NotFoundException(__('Invalid vendor'));
-
-		}
-
-		if ($this->request->is('post') || $this->request->is('put')) {
-
-			
-
-			$this->request->data['Vendor']['distributor_name']=htmlspecialchars(strip_tags($this->request->data['Vendor']['name']));
-
-			$this->request->data['Vendor']['email']=htmlspecialchars(strip_tags($this->request->data['Vendor']['email']));
-
-		$this->request->data['Vendor']['contact']=htmlspecialchars(strip_tags($this->request->data['Vendor']['contact']));
-
-			 $this->request->data['Vendor']['discription']=htmlspecialchars($this->request->data['Vendor']['description']);
-
-			
-
-			
-
-			$preData=$this->Vendor->find('first',array('conditions' => array('Vendor.' . $this->Vendor->primaryKey => $id)));
-
-		
-
-		
-
-	            if ($this->Vendor->save($this->request->data)) {
-
-				$this->Session->setFlash(__('The distributor has been saved'));
-
-				$this->redirect(array('action' => 'vendor'));
-
-			} else {
-
-				$this->Session->setFlash(__('The distributor could not be saved. Please, try again.'));
-
+															$data = array(
+																
+																'cin'=>$item1,
+																'company_name'=>$item2,
+																'company_class'=>$item3,
+																'company_category'=>$item4,
+																'company_subcategory'=>$item5,
+																'company_status'=>$item6,																
+																'registration_date'=>$item7,
+																'registered_state'=>$item8,
+																'authorised_capital'=>$item9,
+																'paidup'=>$item10,
+																'principal_business_activity_code'=>$item11,
+																'registered_office_address'=>$item12,
+																'email'=>$item13,
+																'annual_filing'=>$item14,
+																'balancesheet_filing'=>$item15,
+																
+															);
+														  //  $item2 = $data[1];
+														  //  $item3 = $data[2];
+														  //  $item4 = $data[3];
+														    $this->Companydetail->create();
+															//$Applicant = $this->Subscriber->newEntity($data);
+															$this->Companydetail->save($data);
+															//debug($this->Subscribe->lastQuery());
+															// 
+														}
+											fclose($handle);
+											$this->redirect(array('action' => 'regcompanylist', 'admin' => true));
+											 // $this->Subscriber->save($data);
+											  
+											}
+										}
+										else
+										{
+											$this->Session->setFlash('Upload csv file only ');	
+											$this->redirect(array('action' => 'regcompanylist'));
+											
+										}
+									}
+								  
+								  
+								  
+								  
+	             //$this->autoRender=FALSE;
+				
+				 //pr($_FILES);die;
+					
+							
 			}
 
-		} else {
+	}
+	   $this->Paginator->settings = array('limit' => 16);
+    $companylist = $this->Paginator->paginate('Companydetail');
 
-			     $this->request->data = $this->Vendor->read(null, $id);
-
-			
-
-			
-
-		}
-
-		
-
+	
+		 $this->set(compact('companylist'));
+	
 	}
 
+
+
+
+
+	
+
+	
+
+	
 	 public function admin_portfolio(){
 
    		//$this->autoRender=false;
